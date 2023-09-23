@@ -33,8 +33,8 @@ export async function login(req,res){
 
         const admin = await AdminModel.findOne({email:email})
         // console.log(admin)
-        // const isPasswordMatch = (password===admin.password)
-        const isPasswordMatch  =await bcrypt.compare(password,admin.password)
+        const isPasswordMatch = (password===admin.password)
+        // const isPasswordMatch  =await bcrypt.compare(password,admin.password)
         console.log(isPasswordMatch)
           if(!isPasswordMatch){
             res.status(StatusCodes.BAD_REQUEST).json({message:"invalid credentials"})
