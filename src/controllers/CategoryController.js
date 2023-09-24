@@ -5,11 +5,11 @@ import { ProductModel } from "../models/ProductModel.js";
 export const saveCategory = async(req,res)=>{
     try {
         const  category = CategoryModel(req.body)
-        
+        console.log(req.body)
         const savedCategory =await category.save()
-        // const product = ProductModel.findById(savedCategory._id)
+        // const product = ProductModel.findById(savedCategory._id) 
 
-        console.log(product)
+        // console.log(product)
 
         res.status(StatusCodes.CREATED).json({data:savedCategory, message:"category save successfully ", success:true})
     } catch (error) {
